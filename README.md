@@ -3,6 +3,19 @@
 This repository hosts the final project for the CM3070 module at the University of London. The application uses a fine-tuned T5 model to transform job descriptions into Boolean queries, which are then enhanced with semantic similarity scoring to evaluate candidate resumes. It includes a PyQt5-based interface for generating queries, searching local candidate data, and exporting resumes.
 
 ---
+# Disclaimer
+Please note that due to file size limitations, the repository does not include the following items:
+
+• The original model
+• The fine-tuned model
+• The complete training data
+• The local database
+
+All of these resources are available externally. You can access them using the following link:
+
+https://drive.google.com/drive/folders/1KLy-QelQcfzYedVWRlSyF703hmQI8zKr?usp=sharing
+
+---
 
 ## Key Features
 
