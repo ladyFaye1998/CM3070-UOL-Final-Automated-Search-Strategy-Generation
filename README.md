@@ -97,6 +97,8 @@ The fine-tuned model will be saved in the `fine-tuned-t5` directory.
 - **favicon.ico**  
   Icon file used by the PyQt5 interface.
 
+- **requirements.txt**  
+  Contains all required installations to run the project
 ---
 
 ## Acknowledgements
