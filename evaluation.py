@@ -1,39 +1,9 @@
-#!/usr/bin/env python3
-"""
-evaluation.py
-
-This script evaluates the Automated Search Strategy Generator & Resume Analyzer system.
-The evaluation comprises two major components:
-
-1. Query Generation Quality:
-   - Syntactical Accuracy: Checks that generated Boolean queries have balanced parentheses.
-   - Semantic Relevance: Compares automated queries with manually generated queries using Jaccard similarity.
-   - Response Time: Measures the time taken to generate queries.
-
-2. Candidate Matching Performance:
-   - Precision, Recall, and F1 Score: Compares system candidate evaluation results with ground truth labels.
-   - Response Time: Measures the time taken for candidate evaluation.
-   - (Optional) Parameter Tuning: Could be implemented to vary the weighting parameters (α and β).
-
-The script assumes a benchmark dataset CSV file named "benchmark_dataset.csv" exists in the same directory.
-The CSV is expected to have the following columns:
-    - job_description: The input job description text.
-    - manual_query: The manually generated Boolean query (ground truth). (If missing, 'query' will be used.)
-    - candidate_resume: The candidate resume text.
-    - label: Ground truth binary label (1 for relevant, 0 for non-relevant).
-
-Placeholders are marked as [Placeholder] where you can insert additional information.
-"""
-
 import time
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.metrics import precision_score, recall_score, f1_score
 from automated_search_strategy_generator import FineTunedSearchStrategyGenerator, hybrid_search_t5
 
-# ----------------------------
-# Utility Functions
-# ----------------------------
 
 def is_balanced(query):
     """Check if parentheses in the query are balanced."""
@@ -55,21 +25,9 @@ def jaccard_similarity(str1, str2):
         return 0.0
     return len(set1.intersection(set2)) / len(set1.union(set2))
 
-# ----------------------------
-# Evaluation Functions
-# ----------------------------
 
 def evaluate_query_generation(generator, job_desc, manual_query, n_trials=50):
-    """
-    Evaluate the quality and response time of query generation.
     
-    Returns:
-        avg_time: Average generation time.
-        syntax_accuracy: Percentage of queries with balanced parentheses.
-        avg_similarity: Average Jaccard similarity between automated and manual queries.
-        times: List of per-trial response times.
-        similarities: List of per-trial Jaccard similarities.
-    """
     times = []
     similarities = []
     balanced_count = 0
@@ -93,14 +51,6 @@ def evaluate_query_generation(generator, job_desc, manual_query, n_trials=50):
     return avg_time, syntax_accuracy, avg_similarity, times, similarities
 
 def evaluate_candidate_matching(generator, job_desc, candidate_resume, ground_truth, n_trials=50, threshold=0.5):
-    """
-    Evaluate candidate matching performance by running hybrid search over n_trials.
-    
-    Returns:
-        avg_time: Average evaluation time.
-        pred_labels: List of binary predictions (1 if relevant, 0 if not) from each trial.
-        times: List of per-trial evaluation times.
-    """
     times = []
     pred_labels = []
     
@@ -118,16 +68,12 @@ def evaluate_candidate_matching(generator, job_desc, candidate_resume, ground_tr
     avg_time = sum(times) / n_trials
     return avg_time, pred_labels, times
 
-# ----------------------------
-# Main Evaluation Script
-# ----------------------------
 
 def main():
-    # Load benchmark dataset (CSV file)
-    dataset_path = "benchmark_dataset.csv"  # [Placeholder: Adjust dataset path as needed]
+
+    dataset_path = "benchmark_dataset.csv" 
     df = pd.read_csv(dataset_path)
-    
-    # Initialize the query generator (ensure that the fine-tuned model "fine-tuned-t5" is available)
+
     generator = FineTunedSearchStrategyGenerator("fine-tuned-t5")
     
     query_times_all = []
@@ -137,11 +83,11 @@ def main():
     all_true_labels = []
     all_pred_labels = []
     
-    n_trials = 20  # Number of trials per evaluation case
+    n_trials = 20  
     
     for idx, row in df.iterrows():
         job_desc = row['job_description']
-        # Use "manual_query" if it exists, otherwise fallback to "query"
+       
         manual_query = row.get('manual_query', row['query'])
         candidate_resume = row['candidate_resume']
         true_label = row['label']
