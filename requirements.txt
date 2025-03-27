@@ -4,3 +4,4 @@ python-docx==0.8.11
 torch==1.13.1
 transformers==4.22.2
 sentencepiece==0.1.96
+matplotlib==3.10.1
