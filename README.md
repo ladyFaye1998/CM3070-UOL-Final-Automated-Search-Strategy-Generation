@@ -117,8 +117,6 @@ python automated_search_strategy_generator.py train
 
 ## 🤝 Academic & Professional Collaboration
 
-This project stands as a testament to the power of applied NLP in operational recruitment strategies. Whether you are an academic reviewing the codebase, a fellow AI researcher, or a professional interested in automated HR architectures—I encourage you to explore the code.
+Use this project however it helps—study it, adapt it, or build on top of it. If you’d like to collaborate professionally (research, consulting, or implementation), reach out.
 
-Feel free to **fork the repository**, submit a **Pull Request**, or open an **Issue** to discuss model optimization or UI enhancements. 
-
-*Designed and engineered with PyTorch, Hugging Face Transformers, PyQt5, and Meta Llama.*
+If you reuse significant parts of the work, please give appropriate credit and follow the license terms.
