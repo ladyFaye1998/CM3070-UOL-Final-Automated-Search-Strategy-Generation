@@ -31,6 +31,8 @@ To ensure zero risk of exposing PII (Personally Identifiable Information) or com
 
 I utilized **Meta's Llama 3B model** to architect and generate a highly realistic, diverse, and robust fake dataset of resumes and candidate profiles. You can run, test, and push this application to its limits with the complete assurance that no real-world privacy boundaries are crossed. 
 
+Any similarity or match to real-world individuals or real candidate data, if it occurs, is accidental, unintended, and purely coincidental.
+
 ---
 
 ## 🗄️ Architecture & Asset Management (6-7GB)
