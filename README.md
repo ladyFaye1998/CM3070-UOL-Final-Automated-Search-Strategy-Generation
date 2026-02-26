@@ -17,9 +17,9 @@
 
 Welcome to the repository for my final project for the **CM3070 module at the University of London**. 
 
-For this capstone, the university mandates selecting from a strict, predefined list of project briefs. While this limits foundational conceptual creativity, it provides an excellent canvas for rigorous technical execution. I have a profound passion for working with Large Language Models, so I selected this framework and focused entirely on engineering a top-tier, robust, and highly optimized AI application.
+For this capstone, the university requires choosing from a predefined set of project briefs. That constrains the “idea” space, so I treated it as an engineering exercise.
 
-This system leverages a **fine-tuned T5 model** to intelligently translate natural language job descriptions into mathematically optimized Boolean search strings. It then employs advanced semantic similarity scoring to dynamically rank candidate resumes against these queries, all wrapped within a streamlined **PyQt5** graphical interface.
+The system uses a fine-tuned T5 model to translate natural-language job descriptions into optimized Boolean search strings. It then applies semantic similarity scoring to rank candidate resumes against those queries, packaged in a clean PyQt5 GUI.
 
 ---
 
